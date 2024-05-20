@@ -10,3 +10,16 @@ for fruit in fruits:
     print(fruit + "Pie")
 
 print(fruits)
+
+# Using ranges with for loop
+# Displays the numbers between 1 and 10
+# Skips the 3rd no
+# I.e, displays numbers 1, 4, 7 and 10
+for number in range (1, 11, 3):
+    print(number)
+
+# Displaying the sum of the numbers between range of 1 to 100
+total = 0
+for number in range(1, 101):
+    total += number
+print(total)
