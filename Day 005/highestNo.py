@@ -1,0 +1,1 @@
+# Program works out the highest number from a list of numbers
