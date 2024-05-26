@@ -8,10 +8,15 @@
 #TODO-1 
 #Randomly choose a word from the word_list and assign it to a variable called chosen_word.
 
+#Step 2
+#Testing code
+
+
 import random
 
 word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
+print(f'Pssst, the solution is {chosen_word}.')
 guess =  input("Guess a letter:").lower()
 
 for letter in chosen_word:
