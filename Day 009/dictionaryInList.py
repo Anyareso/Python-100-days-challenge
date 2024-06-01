@@ -18,7 +18,7 @@ def add_new_country(name, time_visited,cities_visited):
     new_country = {}
     new_country["country"] = name
     new_country["visits"] = time_visited
-    new_country["country"] = cities_visited
+    new_country["cities"] = cities_visited
     travel_log.append(new_country)
     
 
