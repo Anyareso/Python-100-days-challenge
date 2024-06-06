@@ -51,6 +51,8 @@ def calculate_score(cards):
     return sum(cards)
 
 def compare(user_score, computer_score):
+    if user_score > 21 and computer_score > 21:
+        return "You both went over. You lose"
     if computer_score == user_score:
         return "Draw 🤭"
     elif computer_score == 0:
@@ -77,14 +79,14 @@ def play_game():
         deal_card()
         user_cards.append(deal_card())
     score = sum(user_cards)
-    print(f"Your cards: {user_cards}, current score: {score}")
+    print(f"  Your cards: {user_cards}, current score: {score}")
 
     #computer_cards = []
     computer_cards = []
     for card in range(2):
         deal_card()
         computer_cards.append(deal_card())
-    print(f" Computer's first card: {computer_cards[0]}")
+    print(f"  Computer's first card: {computer_cards[0]}")
 
     #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
     #and returns the score. 
@@ -102,7 +104,7 @@ def play_game():
             is_game_over = True 
         #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
         else:
-            draw_again = input("Do you want to pick another card?\nType 'y' to pick another card or 'n' to pass")
+            draw_again = input("Type 'y' to pick another card or 'n' to pass: ")
             if draw_again == "y":
                 user_cards.append(deal_card())
                 score = sum(user_cards)
@@ -118,8 +120,8 @@ def play_game():
         computer_cards.append(deal_card())
         computer_score = calculate_score(computer_cards)
 
-    print(f"Your final hand is: {user_cards} and final score is: {user_score}")
-    print(f"Computer's final hand is: {computer_cards} and computer's final score is: {computer_score}")
+    print(f"  Your final hand: {user_cards}, final score: {user_score}")
+    print(f"  Computer's final hand: {computer_cards}, final score is: {computer_score}")
     print(compare(user_score, computer_score))
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score.
 # If the computer and user both have the same score, then it's a draw. 
@@ -128,6 +130,6 @@ def play_game():
 # If none of the above, then the player with the highest score wins.
 
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
-while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
+while input(" Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
     clear()
     play_game()
