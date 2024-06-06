@@ -17,9 +17,19 @@
 # drink_portion() 
 
 # Global scope
-player_health = 4
-def drink_portion():
-  portion_strength = 2
-  print(player_health)
+# player_health = 4
+# def game():
+#   def drink_portion():
+#     portion_strength = 2
+#     print(player_health)
 
-drink_portion()
+#   drink_portion()
+# print(player_health)
+
+# There is no block scope
+game_level = 3
+enemies = ["Skeleton", "Zombie", "Alien"]
+if game_level < 5:
+  new_enemy = enemies[0]
+print(new_enemy)
+# If you create a variable within a function, it is only available within that function
