@@ -39,6 +39,7 @@ while machine_on:
 
     def remaining_resources():
         """Returns remaining resources when an order is made"""
+        # Updates the resources with the actual resources left
         resources["water"] = remaining_water
         resources["milk"] = remaining_milk
         resources["coffee"] = remaining_coffee
@@ -55,6 +56,7 @@ while machine_on:
 
     def calculate():
         print("Please insert coins. ")
+        # Process coins
         coin_values = {
             "penny": 0.01,
             "dime": 0.10,
@@ -67,27 +69,29 @@ while machine_on:
         pennies = int(input("How many pennies?"))
         total_inputs = ((coin_values["penny"] * pennies) + (coin_values["dime"] * dimes) +
                         (coin_values["nickel"] * nickels) + (coin_values["quarter"] * quarters))
-        resources["money"] = int(total_inputs)
 
-        if total_inputs > MENU["espresso"]["cost"]:
+        if order == "espresso" and total_inputs > MENU["espresso"]["cost"]:
+            resources["money"] += MENU["espresso"]["cost"]
             change = (total_inputs - MENU["espresso"]["cost"])
             rounded_change = round(change, 2)
             return f"An espresso costs ${MENU["espresso"]["cost"]}. Here is your change: ${rounded_change}"
-        elif total_inputs < MENU["espresso"]["cost"]:
+        elif order == "espresso" and total_inputs < MENU["espresso"]["cost"]:
             return (f"Sorry, an espresso costs ${MENU["espresso"]["cost"]} and you have put ${total_inputs}."
                     f" Here is your refund.")
-        elif total_inputs > MENU["latte"]["cost"]:
+        elif order == "latte" and total_inputs > MENU["latte"]["cost"]:
+            resources["money"] += MENU["latte"]["cost"]
             change = (total_inputs - MENU["latte"]["cost"])
             rounded_change = round(change, 2)
             return f"A latte costs ${MENU["latte"]["cost"]}. Here is your change: ${rounded_change}"
-        elif total_inputs < MENU["latte"]["cost"]:
+        elif order == "latte" and total_inputs < MENU["latte"]["cost"]:
             return (f"Sorry, a latte costs ${MENU["latte"]["cost"]} and you have put ${total_inputs}."
                     f" Here is your refund")
-        elif total_inputs > MENU["cappuccino"]["cost"]:
+        elif order == "cappuccino" and total_inputs > MENU["cappuccino"]["cost"]:
+            resources["money"] += MENU["cappuccino"]["cost"]
             change = (total_inputs - MENU["espresso"]["cost"])
             rounded_change = round(change, 2)
             return f"A capuccino costs ${MENU["cappuccino"]["cost"]}. Here is ${rounded_change} in change"
-        elif total_inputs < MENU["cappuccino"]["cost"]:
+        elif order == "cappuccino" and total_inputs < MENU["cappuccino"]["cost"]:
             return (f"Sorry, a capuccino costs ${MENU["cappuccino"]["cost"]} and you have put ${total_inputs}."
                     f" Here is your refund ")
         else:
@@ -97,7 +101,7 @@ while machine_on:
     if order == "report":
         for keys, values in resources.items():
             if keys == "money":
-                print(f"{keys}: ${values}")
+                print(f"{keys}: ${values:.2f}")
             elif keys == "coffee":
                 print(f"{keys}: {values} g")
             else:
@@ -117,7 +121,7 @@ while machine_on:
                     remaining_milk = resources["milk"]
                     remaining_coffee = resources["coffee"] - MENU["espresso"]["ingredients"]["coffee"]
 
-                    print(remaining_resources())
+                    remaining_resources()
                     print(calculate())
                     break
                 else:
@@ -129,7 +133,7 @@ while machine_on:
                     remaining_water = resources["water"] - MENU["latte"]["ingredients"]["water"]
                     remaining_milk = resources["milk"] - MENU["latte"]["ingredients"]["milk"]
                     remaining_coffee = resources["coffee"] - MENU["latte"]["ingredients"]["coffee"]
-                    print(remaining_resources())
+                    remaining_resources()
                     print(calculate())
                     break
                 else:
@@ -140,7 +144,7 @@ while machine_on:
                     remaining_water = resources["water"] - MENU["cappuccino"]["ingredients"]["water"]
                     remaining_milk = resources["milk"] - MENU["cappuccino"]["ingredients"]["milk"]
                     remaining_coffee = resources["coffee"] - MENU["cappuccino"]["ingredients"]["coffee"]
-                    print(remaining_resources())
+                    remaining_resources()
                     print(calculate())
                     break
                 else:
