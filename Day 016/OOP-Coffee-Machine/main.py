@@ -14,8 +14,10 @@ while machine_on:
         machine_on = False
     elif choice == "report":
         make_coffee.report()
+        # Update money
+        process_coins.report()
     else:
-        chosen_drink = menu_info.find_drink(order_name=choice)
+        chosen_drink = menu_info.find_drink(choice)
         # Checks if item is in the menu
         if chosen_drink:
             # Checks if resources are sufficient
