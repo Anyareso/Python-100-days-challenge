@@ -33,9 +33,9 @@
 # shape.polygon(8, "purple")
 # shape.polygon(9, "brown")
 
+# Solution
 import random
 import turtle as t
-from turtle import Screen
 tim = t.Turtle()
 colors = ["light cyan", "olive", "maroon", "dark orchid", "rosy brown", "wheat", "spring green", "dark sea green"]
 
@@ -51,6 +51,3 @@ for shape_side_n in range (3,11):
     tim.color(random.choice(colors))
     draw_shape(shape_side_n)
 
-
-my_screen = Screen()
-my_screen.exitonclick()
