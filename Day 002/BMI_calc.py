@@ -4,10 +4,10 @@
 # 2nd input; enter weight in kilograms e.g:72
 
 print("\033c")
-height = input("Enter height in meters")
-weight = input("Enter weight in kilograms")
+height = input("Enter height in meters: ")
+weight = input("Enter weight in kilograms: ")
 
 den = float(height) * float(height)
-num = int (weight)
+num = int(weight)
 BMI = (num / den)
 print(int(BMI))
