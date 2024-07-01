@@ -1,17 +1,17 @@
-import colorgram
-
-# Extract 6 colors from an image.
-colors = colorgram.extract('image.jpg', 50)
-
-rbg_colors = []
-for color in colors:
-    r = color.rgb.r
-    g = color.rgb.g
-    b = color.rgb.b
-    new_color = (r, g, b)
-    rbg_colors.append(new_color)
-
-print(rbg_colors)
+# import colorgram
+#
+# # Extract 6 colors from an image.
+# colors = colorgram.extract('image.jpg', 50)
+#
+# rbg_colors = []
+# for color in colors:
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     new_color = (r, g, b)
+#     rbg_colors.append(new_color)
+#
+# print(rbg_colors)
 
 color_list = [(180, 170, 162), (212, 208, 203), (217, 228, 221), (226, 216, 221), (218, 223, 229), (187, 179, 181),
               (169, 179, 184), (155, 175, 161), (206, 196, 165), (140, 86, 62), (57, 105, 121), (65, 115, 89),
