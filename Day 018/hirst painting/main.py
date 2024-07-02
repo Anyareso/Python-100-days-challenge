@@ -13,7 +13,9 @@
 #
 # print(rbg_colors)
 import random
+import turtle
 from turtle import Turtle, Screen
+turtle.colormode(255)
 
 color_list = [(180, 170, 162), (212, 208, 203), (217, 228, 221), (226, 216, 221), (218, 223, 229), (187, 179, 181),
               (169, 179, 184), (155, 175, 161), (206, 196, 165), (140, 86, 62), (57, 105, 121), (65, 115, 89),
@@ -23,8 +25,7 @@ color_list = [(180, 170, 162), (212, 208, 203), (217, 228, 221), (226, 216, 221)
               (175, 198, 204), (79, 73, 42), (120, 126, 146)]
 
 tim = Turtle()
-
-# dot_color = random.choice(color_list)
+tim.speed("fast")
 
 
 def make_dots():
@@ -36,6 +37,7 @@ def make_dots():
 
 def row():
     for _ in range(10):
+        tim.color(random.choice(color_list))
         make_dots()
 
 
