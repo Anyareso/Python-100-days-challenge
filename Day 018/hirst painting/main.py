@@ -12,6 +12,8 @@
 #     rbg_colors.append(new_color)
 #
 # print(rbg_colors)
+import random
+from turtle import Turtle, Screen
 
 color_list = [(180, 170, 162), (212, 208, 203), (217, 228, 221), (226, 216, 221), (218, 223, 229), (187, 179, 181),
               (169, 179, 184), (155, 175, 161), (206, 196, 165), (140, 86, 62), (57, 105, 121), (65, 115, 89),
@@ -20,4 +22,30 @@ color_list = [(180, 170, 162), (212, 208, 203), (217, 228, 221), (226, 216, 221)
               (190, 191, 196), (18, 92, 70), (99, 146, 115), (84, 149, 157), (21, 83, 95), (177, 97, 104),
               (175, 198, 204), (79, 73, 42), (120, 126, 146)]
 
+tim = Turtle()
 
+# dot_color = random.choice(color_list)
+
+
+def make_dots():
+    tim.dot(20)
+    tim.penup()
+    tim.forward(50)
+    tim.dot(20)
+
+
+def row():
+    for _ in range(10):
+        make_dots()
+
+
+n = 0
+for _ in range(10):
+    row()
+    tim.home()
+    n += 40
+    tim.teleport(y=n)
+
+
+my_screen = Screen()
+my_screen.exitonclick()
