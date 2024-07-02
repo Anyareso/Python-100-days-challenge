@@ -47,7 +47,7 @@ def draw_shape(num_sides):
         tim.right(angle)
 
 
-for shape_side_n in range (3,11):
+for shape_side_n in range(3, 11):
     tim.color(random.choice(colors))
     draw_shape(shape_side_n)
 
