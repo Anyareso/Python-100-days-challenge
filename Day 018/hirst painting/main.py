@@ -26,13 +26,13 @@ color_list = [(180, 170, 162), (212, 208, 203), (217, 228, 221), (226, 216, 221)
 
 tim = Turtle()
 tim.speed("fast")
+tim.hideturtle()
 
 
 def make_dots():
     tim.dot(20)
     tim.penup()
     tim.forward(50)
-    tim.dot(20)
 
 
 def row():
