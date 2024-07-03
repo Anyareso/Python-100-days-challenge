@@ -1,11 +1,11 @@
-# My life in weeks
+# My life in weeks program
 # Calculates how many weeks you have left to live to get to 90 years
 # Things to consider:
-# There are 365 days in an year,
-# Roughly 52 weeks in an year
+# There are 365 days in a year,
+# Roughly 52 weeks in a year
 # Asks user to input their current age, then converts it to weeks
 print("\033c")
-age = int(input("Enter your current age in years"))
+age = int(input("Enter your current age in years: "))
 
 days_in_a_year = 365
 weeks_in_an_year = 52
