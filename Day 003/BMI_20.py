@@ -1,4 +1,4 @@
-# Inteprative BMI 
+# Interpretive BMI
 # Under 18.5, they are underweight
 # Over 18.5 but below 25 they are normal weight
 # Over 25 but below 30 they are slightly overweight
