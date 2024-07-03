@@ -1,8 +1,8 @@
 # Are you looking for love?
 # Program tests the compatibility between two people
-# Take both names of the people and check for the nnumber of times the letters in the word TRUE occurs
-# Then do the same for the word LOVE
-# Then combine the numbers to make a 2 digit number
+# Take both names of the people and check for the number of times the letters in the word TRUE occurs
+# Then does the same for the word LOVE
+# Then combines the numbers to make a 2-digit number
 
 print("The Love Calculator is calculating your score ...")
 name1 = input("What is your name?")
@@ -31,4 +31,3 @@ elif (score >= 40) and (score <= 50):
     print(f"Your love score is: {score}, you are alright together.")
 else:
     print(f"Your love score is: {score}.")
-
