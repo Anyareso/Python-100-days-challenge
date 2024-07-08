@@ -13,11 +13,11 @@ def move_backward():
 
 
 def move_clockwise():
-    tim.right(90)
+    tim.right(10)
 
 
 def move_anticlockwise():
-    tim.left(90)
+    tim.left(10)
 
 
 screen.listen()
