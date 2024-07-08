@@ -20,10 +20,19 @@ def move_anticlockwise():
     tim.left(10)
 
 
+def clear():
+    tim.clear()
+    tim.penup()
+    tim.home()
+    tim.pendown()
+
+
 screen.listen()
 screen.onkey(key="w", fun=move_forward)
 screen.onkey(key="s", fun=move_backward)
 screen.onkey(key="a", fun=move_anticlockwise)
 screen.onkey(key="d", fun=move_clockwise)
+screen.onkey(key="c", fun=clear)
+
 
 screen.exitonclick()
