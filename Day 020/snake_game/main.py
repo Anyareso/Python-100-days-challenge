@@ -4,68 +4,66 @@ from food import Food
 from scoreboard import ScoreBoard
 import time
 
-screen = Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
-screen.title("Snake Game")
-screen.tracer(0)
 
-# Creating the snake
-snake = Snake()
+def play_game():
 
-# Creating the food
-food = Food()
+    screen = Screen()
+    screen.setup(width=600, height=600)
+    screen.bgcolor("black")
+    screen.title("Snake Game")
+    screen.tracer(0)
 
-# Establishing the score
-scoreboard = ScoreBoard()
+    # Creating the snake
+    snake = Snake()
 
-# Controlling the snake by keyboard keys
-screen.listen()
-screen.onkey(snake.up, "Up")
-screen.onkey(snake.down, "Down")
-screen.onkey(snake.left, "Left")
-screen.onkey(snake.right, "Right")
+    # Creating the food
+    food = Food()
 
-game_is_on = True
-while game_is_on:
-    screen.update()
-    time.sleep(0.1)
-    snake.move()
+    # Establishing the score
+    scoreboard = ScoreBoard()
 
-#   Detect collision with food
-    if snake.head.distance(food) < 15:
-        food.refresh()
-        snake.extend()
-        scoreboard.increase_score()
+    # Controlling the snake by keyboard keys
+    screen.listen()
+    screen.onkey(snake.up, "Up")
+    screen.onkey(snake.down, "Down")
+    screen.onkey(snake.left, "Left")
+    screen.onkey(snake.right, "Right")
 
-#   Detect collision with wall
-    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-        game_is_on = False
-        scoreboard.game_over()
+    game_is_on = True
+    while game_is_on:
+        screen.update()
+        time.sleep(0.1)
+        snake.move()
 
-#     Detect collision with tail
-    for segment in snake.segments[1:]:
-        if snake.head.distance(segment) < 10:
+    #   Detect collision with food
+        if snake.head.distance(food) < 15:
+            food.refresh()
+            snake.extend()
+            scoreboard.increase_score()
+
+    #   Detect collision with wall
+        if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
             game_is_on = False
             scoreboard.game_over()
-# If the snake collides with any segment of the tail
-# trigger game over
+
+    #     Detect collision with tail
+        for segment in snake.segments[1:]:
+            if snake.head.distance(segment) < 10:
+                game_is_on = False
+                scoreboard.game_over()
+    # If the snake collides with any segment of the tail
+    # trigger game over
+
+    while True:
+        user_choice = screen.textinput(title="Play again", prompt="Don't chicken out. Just type yes. ")
+        if user_choice == "yes":
+            screen.clear()
+            play_game()
+        else:
+            screen.bye()
+            break
+
+# screen.exitonclick()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-screen.exitonclick()
+play_game()
