@@ -7,7 +7,7 @@ UP = 90
 DOWN = 270
 
 screen = Screen()
-screen.setup(width=1200, height=600)
+screen.setup(width=1250, height=600)
 screen.title("Ping Pong Game")
 screen.bgcolor("black")
 screen.tracer(0)
@@ -49,10 +49,21 @@ while game_is_on:
     # Detect collision with right paddle
     if ball.distance(r_paddle) < 50 and ball.xcor() > 540:
         ball.bounce_x()
+        # Detecting the ball has been missed
+        if ball.xcor() > 590 or ball.xcor() > -590:
+            print("missed")
 
     # Detecting collision with left paddle
     if ball.distance(l_paddle) < 50 and ball.xcor() < -540:
         ball.bounce_x()
+
+    # Detect when right paddle misses
+    if ball.xcor() > 600:
+        ball.reset_position()
+
+
+
+
 
 
 
