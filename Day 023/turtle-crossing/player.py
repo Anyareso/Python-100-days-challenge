@@ -18,6 +18,9 @@ class Player(Turtle):
     def successful_crossing(self):
         if self.ycor() > FINISH_LINE_Y:
             self.goto(STARTING_POSITION)
+            return True
+        else:
+            return False
 
 
 
