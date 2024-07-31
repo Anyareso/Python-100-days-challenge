@@ -9,7 +9,7 @@ screen.setup(width=600, height=600)
 screen.tracer(0)
 
 player = Player()
-car = CarManager()
+car_manager = CarManager()
 
 
 screen.listen()
@@ -20,8 +20,19 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    car.create_car()
-    car.move_car()
+    car_manager.create_car()
+    car_manager.move_car()
+
+    # Detecting collision with the car
+    for car in car_manager.all_cars:
+        if car.distance(player) < 25:
+            game_is_on = False
+
+#   Detect when the turtle reaches the end of the screen
+        player.successful_crossing()
 
 
 
+
+
+screen.exitonclick()
