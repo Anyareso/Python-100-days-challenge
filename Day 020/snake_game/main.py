@@ -43,25 +43,16 @@ def play_game():
 
     #   Detect collision with wall
         if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
     #     Detect collision with tail
         for segment in snake.segments[1:]:
             if snake.head.distance(segment) < 10:
-                game_is_on = False
-                scoreboard.game_over()
+                scoreboard.reset()
+                snake.reset()
     # If the snake collides with any segment of the tail
     # trigger game over
-
-    while True:
-        user_choice = screen.textinput(title="Play again", prompt="Don't chicken out. Just type yes. ")
-        if user_choice == "yes":
-            screen.clear()
-            play_game()
-        else:
-            screen.bye()
-            break
 
 # screen.exitonclick()
 
