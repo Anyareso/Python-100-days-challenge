@@ -4,5 +4,5 @@
 #     print(contents)
 
 # writing a file
-with open("my_file.txt", mode="w") as file:
-    file.write("I cannot be much louder.")
+with open("my_file.txt", mode="a") as file:
+    file.write("\nI cannot be much louder.")
