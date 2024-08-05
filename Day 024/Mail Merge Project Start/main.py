@@ -15,7 +15,6 @@ letter = template.read()
 for people in names:
     stripped_name = people.strip()
     first = letter.replace("[name]", stripped_name)
-    # print(first)
 
     with open(f"Output/ReadyToSend/letter_to_{stripped_name}.txt", mode="w") as completed_letter:
         completed_letter.write(first)
