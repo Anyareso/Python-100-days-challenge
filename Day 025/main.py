@@ -1,5 +1,5 @@
 import pandas
-data = pandas.read_csv("weather_data.csv")
+# data = pandas.read_csv("weather_data.csv")
 
 # # Get average temp
 # average_temp = data["temp"].mean()
@@ -26,9 +26,28 @@ data = pandas.read_csv("weather_data.csv")
 # print(monday_temp_f)
 
 # Create a dataframe from scratch
-data_dict = {
-    "students":["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
+# data_dict = {
+#     "students":["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65]
+# }
+# data = pandas.DataFrame(data_dict)
+# data.to_csv("new_data.csv")
+
+# using Central Park Squirrel Census Data
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data_20240807.csv")
+Gray_squirrel = data[data["Primary Fur Color"] == "Gray"]
+no_Gray_squirrel = len(Gray_squirrel)
+
+Cinnamon_squirrel = data[data["Primary Fur Color"] == "Cinnamon"]
+no_Cinnamon_squirrel = len(Cinnamon_squirrel)
+
+Black_squirrel = data[data["Primary Fur Color"] == "Black"]
+no_Black_squirrel = len(Black_squirrel)
+
+squirrel_fur_colors = {
+    "Fur Color": ["Gray", "Cinnamon", "Black"],
+    "Count": [no_Gray_squirrel, no_Cinnamon_squirrel, no_Black_squirrel]
 }
-data = pandas.DataFrame(data_dict)
-data.to_csv("new_data.csv")
+
+squirrel_count = pandas.DataFrame(squirrel_fur_colors)
+squirrel_count.to_csv("squirrel_count.csv")
