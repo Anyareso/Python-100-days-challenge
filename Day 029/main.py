@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from random import randint, shuffle, choice
-
+import pyperclip
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
@@ -21,8 +21,8 @@ def generate_password():
     shuffle(password_list)
 
     password = "".join(password_list)
-
     password_user_input.insert(0, password)
+    pyperclip.copy(password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
