@@ -3,23 +3,26 @@ from tkinter import messagebox
 from random import randint, shuffle, choice
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-           'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-password_letters = [choice(letters) for _ in range(randint(8, 10))]
-password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
-password_numbers = [choice(numbers) for _ in range(randint(2, 4))]
 
-password_list = password_letters + password_numbers + password_symbols
+def generate_password():
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-shuffle(password_list)
+    password_letters = [choice(letters) for _ in range(randint(8, 10))]
+    password_symbols = [choice(symbols) for _ in range(randint(2, 4))]
+    password_numbers = [choice(numbers) for _ in range(randint(2, 4))]
 
-password = "".join(password_list)
+    password_list = password_letters + password_numbers + password_symbols
 
-print(f"Your password is: {password}")
+    shuffle(password_list)
+
+    password = "".join(password_list)
+
+    password_user_input.insert(0, password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
@@ -28,7 +31,7 @@ def save_password():
     email_input = email_user_input.get()
     password_input = password_user_input.get()
 
-    if not website_input or not email_input or not password_input < 0:
+    if len(website_input) == 0 or len(email_input) == 0 or len(password_input) == 0:
         messagebox.showerror(title="Oops", message="Please do not leave any of the fields empty!")
     else:
         is_ok = messagebox.askokcancel(title=website_input,
@@ -71,7 +74,7 @@ email_user_input.insert(0, "agnesnyareso3@gmail.com")
 password_user_input = Entry(width=33)
 password_user_input.grid(column=1, row=3)
 
-generate_pass_btn = Button(text="Generate Password")
+generate_pass_btn = Button(text="Generate Password", command=generate_password)
 generate_pass_btn.grid(column=2, row=3)
 
 add_btn = Button(text="Add", width=44, command=save_password)
