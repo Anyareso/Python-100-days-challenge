@@ -1,5 +1,2 @@
 google | agnesnyareso3@gmail.com | mygooglepassword
-facebook | agnesnyareso3@gmail.com | 
-facebook | agnesnyareso3@gmail.com | myfacebookpass
-chrome | agnesnyareso3@gmail.com | mychromepass
-youtube | agnesnyareso3@gmail.com | myyoutubepass
+
