@@ -12,6 +12,5 @@ else:
     content = file.read()
     print(content)
 finally:
-    file.close()
-    print("file was closed")
+    raise TypeError("This is an error that i made up")
 
