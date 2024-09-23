@@ -83,8 +83,8 @@ email_label.grid(column=0, row=2)
 password_label = Label(text="Password: ", font=20)
 password_label.grid(column=0, row=3)
 
-website_user_input = Entry(width=52)
-website_user_input.grid(column=1, row=1, columnspan=2)
+website_user_input = Entry(width=33)
+website_user_input.grid(column=1, row=1)
 website_user_input.focus()
 
 email_user_input = Entry(width=52)
@@ -99,5 +99,8 @@ generate_pass_btn.grid(column=2, row=3)
 
 add_btn = Button(text="Add", width=44, command=save_password)
 add_btn.grid(column=1, row=4, columnspan=2)
+
+search_btn = Button(text="Search", width=14)
+search_btn.grid(column=2, row=1)
 
 window.mainloop()
